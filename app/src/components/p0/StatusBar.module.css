@@ -1,0 +1,37 @@
+.statusBar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.label {
+  font-size: 13px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  min-width: 80px;
+}
+
+.barContainer {
+  flex: 1;
+  height: 6px;
+  background: var(--ground-washed);
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.5s var(--ease-out);
+}
+
+.safe { background: var(--signal-safe-text); }
+.warn { background: var(--signal-warn-text); }
+.danger { background: var(--signal-danger-text); }
+
+.values {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}

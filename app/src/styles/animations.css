@@ -1,0 +1,31 @@
+/* 卡片出现动画 — 250ms ease-out, 8px上浮 */
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 淡入 */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* 导航激活指示器 */
+@keyframes navIndicator {
+  from { opacity: 0; transform: scaleY(0); }
+  to { opacity: 1; transform: scaleY(1); }
+}
+
+.animate-card {
+  animation: cardAppear var(--duration-medium) var(--ease-out) forwards;
+}
+
+.animate-fade {
+  animation: fadeIn var(--duration-small) var(--ease-out) forwards;
+}

@@ -1,0 +1,24 @@
+.agentMessage {
+  background: var(--ground-agent);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  animation: cardAppear var(--duration-medium) var(--ease-out);
+}
+
+.prefix {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.symbol {
+  color: var(--pigment);
+  font-size: 14px;
+}
+
+.blocks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-base);
+}

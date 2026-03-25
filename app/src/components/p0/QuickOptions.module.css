@@ -1,0 +1,28 @@
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.option {
+  height: 32px;
+  padding: 0 var(--space-md);
+  background: var(--ground-washed);
+  color: var(--text-primary);
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 400;
+  display: inline-flex;
+  align-items: center;
+  transition: all var(--duration-small) var(--ease-out);
+}
+
+.option:hover {
+  background: var(--pigment-light);
+  color: var(--pigment-dark);
+}
+
+.option:active {
+  background: var(--pigment);
+  color: var(--ground-white);
+}

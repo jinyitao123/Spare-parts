@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.vite/
+*.local
+.env
+.DS_Store
+
+# Backend binary
+backend/bin/
+
+# Prototype node_modules
+prototype/node_modules/

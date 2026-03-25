@@ -1,0 +1,16 @@
+.wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.userMessage {
+  background: var(--ground-white);
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-base);
+  max-width: 480px;
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--text-primary);
+  box-shadow: var(--shadow-card);
+  animation: cardAppear var(--duration-medium) var(--ease-out);
+}

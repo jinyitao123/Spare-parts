@@ -1,0 +1,132 @@
+<style>
+*{box-sizing:border-box;margin:0}
+.wrap{font-family:var(--font-sans);color:var(--color-text-primary);max-width:680px}
+.hd{font-size:16px;font-weight:500;margin-bottom:16px}
+.flow{display:flex;align-items:stretch;gap:12px;margin-bottom:20px}
+.src,.tgt{flex:1;border:0.5px solid var(--color-border-tertiary);border-radius:12px;padding:16px;background:var(--color-background-primary)}
+.pipe{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:100px;gap:4px}
+.pipe-line{width:60px;height:2px;background:var(--color-border-secondary);position:relative}
+.pipe-line::after{content:'';position:absolute;right:-4px;top:-3px;border:4px solid transparent;border-left:6px solid var(--color-border-secondary)}
+.src-title{font-size:14px;font-weight:500;margin-bottom:8px}
+.src-sub{font-size:12px;color:var(--color-text-secondary);line-height:1.6}
+.tgt-title{font-size:14px;font-weight:500;margin-bottom:4px}
+.tgt-items{font-size:12px;color:var(--color-text-secondary);line-height:1.8}
+.pipe-label{font-size:11px;color:var(--color-text-tertiary);text-align:center}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle}
+.dot-ok{background:#2D6A2D}
+.dot-rt{background:#1D9E75}
+.dot-warn{background:#8B5E0A}
+.status{display:flex;align-items:center;gap:6px;font-size:12px;margin-top:8px}
+.status-text{color:var(--color-text-secondary)}
+.log-section{margin-top:16px}
+.log-hd{font-size:14px;font-weight:500;margin-bottom:10px}
+.log-row{display:flex;align-items:flex-start;gap:12px;padding:8px 0;border-bottom:0.5px solid var(--color-border-tertiary);font-size:12px}
+.log-time{min-width:72px;color:var(--color-text-tertiary);white-space:nowrap}
+.log-badge{display:inline-block;padding:1px 8px;border-radius:99px;font-size:11px;font-weight:500;white-space:nowrap}
+.badge-ok{background:var(--color-background-success);color:var(--color-text-success)}
+.badge-warn{background:var(--color-background-warning);color:var(--color-text-warning)}
+.log-detail{color:var(--color-text-secondary);line-height:1.5}
+.log-sub{color:var(--color-text-tertiary);font-size:11px;margin-top:2px}
+.sep{height:0.5px;background:var(--color-border-tertiary);margin:20px 0}
+.summary{display:flex;gap:16px;margin-bottom:16px}
+.sum-card{flex:1;padding:12px;border-radius:8px;background:var(--color-background-secondary)}
+.sum-num{font-size:22px;font-weight:500}
+.sum-label{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+</style>
+<div class="wrap">
+<div class="hd">数据连接</div>
+
+<div class="summary">
+<div class="sum-card"><div class="sum-num">2</div><div class="sum-label">已接入数据源</div></div>
+<div class="sum-card"><div class="sum-num" style="color:var(--color-text-success)">1,247</div><div class="sum-label">昨日同步记录数</div></div>
+<div class="sum-card"><div class="sum-num" style="color:var(--color-text-success)">0</div><div class="sum-label">失败记录</div></div>
+</div>
+
+<div class="flow">
+<div class="src">
+<div class="src-title"><span class="dot dot-ok"></span>通威数据中台</div>
+<div class="src-sub">
+即时库存（备件主数据 + 库存数量）<br>
+领料出库列表（一级库出入库流水）<br>
+采购单（采购申请 + 到货记录）
+</div>
+<div class="status"><span class="status-text">定时同步 · 每晚 00:00</span></div>
+</div>
+<div class="pipe">
+<div class="pipe-label">T-1 批量</div>
+<div class="pipe-line"></div>
+<div class="pipe-label" style="font-size:10px;color:var(--color-text-success)">昨晚 00:03</div>
+</div>
+<div class="tgt" style="border-left:3px solid #2D6A2D;border-radius:0 12px 12px 0">
+<div class="tgt-title">inocube 本体</div>
+<div class="tgt-items">
+备件 148 种<br>
+库存头寸 612 个<br>
+出入库记录 1,087 条<br>
+采购单 47 笔
+</div>
+</div>
+</div>
+
+<div class="flow">
+<div class="src">
+<div class="src-title"><span class="dot dot-rt"></span>扫码系统（二级库）</div>
+<div class="src-sub">
+二级库出入库事件<br>
+扫码确认 + 数量录入
+</div>
+<div class="status"><span class="status-text">实时同步 · 事件驱动</span></div>
+</div>
+<div class="pipe">
+<div class="pipe-label">实时</div>
+<div class="pipe-line"></div>
+<div class="pipe-label" style="font-size:10px;color:var(--color-text-success)">延迟 &lt;1s</div>
+</div>
+<div class="tgt" style="border-left:3px solid #1D9E75;border-radius:0 12px 12px 0">
+<div class="tgt-title">inocube 本体</div>
+<div class="tgt-items">
+二级库头寸 实时更新<br>
+出入库记录 实时写入<br>
+今日已处理 23 条
+</div>
+</div>
+</div>
+
+<div class="sep"></div>
+
+<div class="log-section">
+<div class="log-hd">同步记录</div>
+<div class="log-row">
+<div class="log-time">03-19 00:03</div>
+<div class="log-badge badge-ok">成功</div>
+<div class="log-detail">
+备件 148 条 · 头寸 612 条 · 出入库 87 条 · 采购单 12 条
+<div class="log-sub">耗时 42s · 数据中台 → 本体全量同步</div>
+</div>
+</div>
+<div class="log-row">
+<div class="log-time">03-18 00:02</div>
+<div class="log-badge badge-ok">成功</div>
+<div class="log-detail">
+备件 148 条 · 头寸 612 条 · 出入库 92 条 · 采购单 8 条
+<div class="log-sub">耗时 38s</div>
+</div>
+</div>
+<div class="log-row">
+<div class="log-time">03-17 00:04</div>
+<div class="log-badge badge-warn">部分成功</div>
+<div class="log-detail">
+备件 148 条 · 头寸 612 条 · 出入库 79 条（3条异常）
+<div class="log-sub">3条出入库记录因物料编码不存在进入异常队列 · <span style="color:var(--color-text-info);cursor:pointer">查看异常</span></div>
+</div>
+</div>
+<div class="log-row">
+<div class="log-time">03-16 00:02</div>
+<div class="log-badge badge-ok">成功</div>
+<div class="log-detail">
+备件 147 条 · 头寸 608 条 · 出入库 95 条 · 采购单 6 条
+<div class="log-sub">耗时 36s</div>
+</div>
+</div>
+</div>
+</div>

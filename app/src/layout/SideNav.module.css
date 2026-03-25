@@ -1,0 +1,73 @@
+.sidenav {
+  width: var(--nav-width);
+  background: var(--ground-linen);
+  position: fixed;
+  top: var(--topbar-height);
+  left: 0;
+  bottom: 0;
+  padding: var(--space-xl) 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 50;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding: 0 var(--space-md);
+}
+
+.divider {
+  height: 0.5px;
+  background: var(--border-default);
+  margin: var(--space-base) var(--space-md);
+}
+
+.spacer {
+  flex: 1;
+}
+
+.navItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: var(--space-sm) var(--space-base);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: color var(--duration-small), background var(--duration-small);
+  width: 100%;
+  text-align: left;
+}
+
+.navItem:hover {
+  background: var(--ground-washed);
+  color: var(--text-primary);
+}
+
+.navItemActive {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* 赭陶色竖线指示器 — 当前激活项 */
+.navItemActive::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 16px;
+  background: var(--pigment);
+  border-radius: 1px;
+  animation: navIndicator var(--duration-small) var(--ease-out);
+}
+
+@keyframes navIndicator {
+  from { opacity: 0; transform: translateY(-50%) scaleY(0); }
+  to { opacity: 1; transform: translateY(-50%) scaleY(1); }
+}

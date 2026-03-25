@@ -1,0 +1,172 @@
+<style>
+*{box-sizing:border-box;margin:0}
+.w{font-family:var(--font-sans);color:var(--color-text-primary);max-width:680px}
+.back{font-size:13px;color:var(--color-text-secondary);cursor:pointer;margin-bottom:12px;display:inline-block}
+.back:hover{color:var(--color-text-primary)}
+.hd{display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.hd-icon{width:36px;height:36px;border-radius:var(--border-radius-md);background:var(--color-background-info);color:var(--color-text-info);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:500}
+.hd-name{font-size:18px;font-weight:500}
+.hd-sub{font-size:12px;color:var(--color-text-secondary)}
+.tabs{display:flex;gap:0;border-bottom:0.5px solid var(--color-border-tertiary);margin-bottom:20px}
+.tab{padding:8px 16px;font-size:13px;color:var(--color-text-secondary);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-0.5px}
+.tab.active{color:var(--color-text-primary);font-weight:500;border-bottom-color:var(--color-text-primary)}
+.tab:hover{color:var(--color-text-primary)}
+.section{margin-bottom:24px}
+.sec-hd{font-size:14px;font-weight:500;margin-bottom:12px}
+.form-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+.form-item{display:flex;flex-direction:column;gap:4px}
+.form-label{font-size:12px;color:var(--color-text-secondary)}
+.form-val{font-size:13px;padding:8px 12px;border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);background:var(--color-background-primary);color:var(--color-text-primary)}
+.form-val:focus{outline:none;border-color:var(--color-border-primary)}
+select.form-val{appearance:none;background-image:url("data:image/svg+xml,%3Csvg width='10' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23888' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;padding-right:28px}
+.test-row{display:flex;align-items:center;gap:12px;margin-top:12px}
+.test-btn{font-size:12px;padding:6px 14px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:transparent;color:var(--color-text-primary);cursor:pointer}
+.test-btn:hover{background:var(--color-background-secondary)}
+.test-ok{font-size:12px;color:var(--color-text-success)}
+.sep{height:0.5px;background:var(--color-border-tertiary);margin:20px 0}
+.map-table{width:100%;border-collapse:collapse;font-size:13px}
+.map-table th{text-align:left;font-size:12px;font-weight:500;color:var(--color-text-secondary);padding:6px 8px;border-bottom:0.5px solid var(--color-border-tertiary)}
+.map-table td{padding:8px;border-bottom:0.5px solid var(--color-border-tertiary);vertical-align:middle}
+.map-arrow{color:var(--color-text-tertiary);text-align:center;width:36px}
+.src-col{color:var(--color-text-secondary);font-family:var(--font-mono);font-size:12px}
+.tgt-col{font-size:12px}
+.tgt-class{font-weight:500}
+.tgt-prop{color:var(--color-text-secondary)}
+.map-type{font-size:11px;padding:2px 6px;border-radius:4px}
+.map-direct{background:var(--color-background-success);color:var(--color-text-success)}
+.map-convert{background:var(--color-background-warning);color:var(--color-text-warning)}
+.map-derive{background:var(--color-background-info);color:var(--color-text-info)}
+.add-map{font-size:12px;color:var(--color-text-info);cursor:pointer;padding:8px;display:inline-block}
+.add-map:hover{text-decoration:underline}
+.sched-row{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.sched-label{font-size:13px;min-width:80px}
+.radio-group{display:flex;gap:8px}
+.radio-item{display:flex;align-items:center;gap:4px;font-size:13px;cursor:pointer}
+.radio-item input{accent-color:var(--color-text-primary)}
+.bottom-bar{display:flex;justify-content:flex-end;gap:10px;margin-top:24px;padding-top:16px;border-top:0.5px solid var(--color-border-tertiary)}
+.btn-primary{font-size:13px;padding:8px 20px;border:none;border-radius:var(--border-radius-md);background:var(--color-text-primary);color:var(--color-background-primary);cursor:pointer}
+.btn-secondary{font-size:13px;padding:8px 20px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:transparent;color:var(--color-text-primary);cursor:pointer}
+</style>
+<div class="w">
+
+<div class="back">← 返回连接器列表</div>
+
+<div class="hd">
+<div class="hd-icon">DB</div>
+<div>
+<div class="hd-name">通威数据中台</div>
+<div class="hd-sub">PostgreSQL · 定时批量 · 3 张表映射</div>
+</div>
+</div>
+
+<div class="tabs">
+<div class="tab active">连接参数</div>
+<div class="tab">字段映射</div>
+<div class="tab">同步调度</div>
+<div class="tab">同步记录</div>
+</div>
+
+<div class="section">
+<div class="sec-hd">数据库连接</div>
+<div class="form-grid">
+<div class="form-item"><div class="form-label">主机地址</div><input class="form-val" value="10.16.2.100" /></div>
+<div class="form-item"><div class="form-label">端口</div><input class="form-val" value="5432" /></div>
+<div class="form-item"><div class="form-label">数据库名</div><input class="form-val" value="tongwei_datahub" /></div>
+<div class="form-item"><div class="form-label">Schema</div><input class="form-val" value="spare_parts" /></div>
+<div class="form-item"><div class="form-label">用户名</div><input class="form-val" value="inocube_reader" /></div>
+<div class="form-item"><div class="form-label">密码</div><input class="form-val" type="password" value="••••••••" /></div>
+</div>
+<div class="test-row">
+<button class="test-btn">测试连接</button>
+<span class="test-ok">连接成功 · 延迟 12ms · 3 张表可访问</span>
+</div>
+</div>
+
+<div class="sep"></div>
+
+<div class="section">
+<div class="sec-hd">源表选择</div>
+<div class="form-grid">
+<label class="radio-item"><input type="checkbox" checked /> spare_parts.instant_inventory（即时库存）</label>
+<label class="radio-item"><input type="checkbox" checked /> spare_parts.material_issue（领料出库）</label>
+<label class="radio-item"><input type="checkbox" checked /> spare_parts.purchase_order（采购单）</label>
+<label class="radio-item"><input type="checkbox" /> spare_parts.equipment_ledger（设备台账）</label>
+</div>
+</div>
+
+<div class="sep"></div>
+
+<div class="section">
+<div class="sec-hd">字段映射 · instant_inventory → 备件 + 库存头寸</div>
+<table class="map-table">
+<thead><tr><th>源字段</th><th></th><th>目标类.属性</th><th>转换</th></tr></thead>
+<tbody>
+<tr><td class="src-col">MATNR</td><td class="map-arrow">→</td><td class="tgt-col"><span class="tgt-class">备件</span>.<span class="tgt-prop">物料编码 id</span></td><td><span class="map-type map-direct">直接</span></td></tr>
+<tr><td class="src-col">MAKTX</td><td class="map-arrow">→</td><td class="tgt-col"><span class="tgt-class">备件</span>.<span class="tgt-prop">名称 name</span></td><td><span class="map-type map-direct">直接</span></td></tr>
+<tr><td class="src-col">MENGE</td><td class="map-arrow">→</td><td class="tgt-col"><span class="tgt-class">库存头寸</span>.<span class="tgt-prop">当前数量 currentQty</span></td><td><span class="map-type map-convert">类型转换</span></td></tr>
+<tr><td class="src-col">STPRS</td><td class="map-arrow">→</td><td class="tgt-col"><span class="tgt-class">库存头寸</span>.<span class="tgt-prop">入库标准价 unitPrice</span></td><td><span class="map-type map-convert">类型转换</span></td></tr>
+<tr><td class="src-col">LGORT</td><td class="map-arrow">→</td><td class="tgt-col"><span class="tgt-class">库存头寸</span>.<span class="tgt-prop">库房引用 warehouseRef</span></td><td><span class="map-type map-convert">枚举映射</span></td></tr>
+<tr><td class="src-col">MEINS</td><td class="map-arrow">→</td><td class="tgt-col"><span class="tgt-class">备件</span>.<span class="tgt-prop">计量单位 unit</span></td><td><span class="map-type map-direct">直接</span></td></tr>
+<tr><td class="src-col">—</td><td class="map-arrow">→</td><td class="tgt-col"><span class="tgt-class">库存头寸</span>.<span class="tgt-prop">库存金额 inventoryValue</span></td><td><span class="map-type map-derive">派生计算</span></td></tr>
+</tbody>
+</table>
+<div class="add-map">+ 添加映射字段</div>
+</div>
+
+<div class="sep"></div>
+
+<div class="section">
+<div class="sec-hd">枚举映射 · LGORT → 库房引用</div>
+<table class="map-table">
+<thead><tr><th>源值</th><th></th><th>目标值</th></tr></thead>
+<tbody>
+<tr><td class="src-col">WH01</td><td class="map-arrow">→</td><td class="tgt-col">一级总库</td></tr>
+<tr><td class="src-col">WH02</td><td class="map-arrow">→</td><td class="tgt-col">二级库-工段A</td></tr>
+<tr><td class="src-col">WH03</td><td class="map-arrow">→</td><td class="tgt-col">二级库-工段B</td></tr>
+<tr><td class="src-col">WH04</td><td class="map-arrow">→</td><td class="tgt-col">二级库-工段C</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="sep"></div>
+
+<div class="section">
+<div class="sec-hd">同步调度</div>
+<div class="sched-row">
+<div class="sched-label">同步模式</div>
+<div class="radio-group">
+<label class="radio-item"><input type="radio" name="mode" checked /> 定时批量</label>
+<label class="radio-item"><input type="radio" name="mode" /> 事件驱动</label>
+<label class="radio-item"><input type="radio" name="mode" /> 手动触发</label>
+</div>
+</div>
+<div class="sched-row">
+<div class="sched-label">执行时间</div>
+<div class="form-grid" style="flex:1">
+<div class="form-item"><div class="form-label">频率</div><select class="form-val"><option>每天</option><option>每小时</option><option>每周</option></select></div>
+<div class="form-item"><div class="form-label">时间点</div><input class="form-val" value="00:00" type="time" /></div>
+</div>
+</div>
+<div class="sched-row">
+<div class="sched-label">同步策略</div>
+<div class="radio-group">
+<label class="radio-item"><input type="radio" name="strategy" checked /> 全量覆盖</label>
+<label class="radio-item"><input type="radio" name="strategy" /> 增量追加</label>
+</div>
+</div>
+<div class="sched-row">
+<div class="sched-label">冲突处理</div>
+<div class="radio-group">
+<label class="radio-item"><input type="radio" name="conflict" checked /> 以源系统为准</label>
+<label class="radio-item"><input type="radio" name="conflict" /> 保留本体值</label>
+<label class="radio-item"><input type="radio" name="conflict" /> 标记冲突</label>
+</div>
+</div>
+</div>
+
+<div class="bottom-bar">
+<button class="btn-secondary">预览同步（试运行）</button>
+<button class="btn-primary">保存配置</button>
+</div>
+
+</div>

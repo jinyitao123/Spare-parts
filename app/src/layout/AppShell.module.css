@@ -1,0 +1,18 @@
+.shell {
+  min-height: 100vh;
+  background: var(--ground-linen);
+}
+
+.main {
+  margin-left: var(--nav-width);
+  margin-top: var(--topbar-height);
+  min-height: calc(100vh - var(--topbar-height));
+  display: flex;
+  justify-content: center;
+}
+
+.canvas {
+  width: 100%;
+  max-width: var(--content-max-width);
+  padding: var(--space-2xl) var(--space-xl);
+}

@@ -1,0 +1,14 @@
+.wrapper {
+  background: var(--ground-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-base);
+  animation: cardAppear var(--duration-medium) var(--ease-out) forwards;
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: var(--space-md);
+}

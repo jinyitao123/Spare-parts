@@ -1,0 +1,57 @@
+.card {
+  background: var(--ground-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-base);
+  animation: cardAppear var(--duration-medium) var(--ease-out) forwards;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text-primary);
+  margin-bottom: var(--space-md);
+}
+
+.metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-base);
+  margin-bottom: var(--space-md);
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.metricValue {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.metricLabel {
+  font-size: 12px;
+  color: var(--text-tertiary);
+}
+
+.bigValue {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.body {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--text-primary);
+}
